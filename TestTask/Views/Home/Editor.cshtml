@@ -1,0 +1,19 @@
+﻿@model TestTask.Models.User
+
+<div class="panel-heading">
+    Создать пользователя
+</div>
+<div class="panel-body">
+    @using (Html.BeginForm("Add", "Home"))
+    {
+        <div class="form-group">
+            <label>Имя клиента</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Департамент</label>
+            @Html.TextBoxFor(m => m.DepartmentID, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    }
+</div>

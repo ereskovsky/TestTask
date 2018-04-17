@@ -1,0 +1,30 @@
+﻿
+
+@model List<TestTask.Models.User>
+
+<div class="panel-heading">Все пользователи</div>
+<div class="panel-body">
+    <table class="table table-striped table-condensed">
+        <thead>
+            <tr><th>ID</th>
+            <th>Имя пользователя</th>
+            <th>Отдел</th>
+            <th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.UserName</td>
+                    <td>@TestTask.Models.DepartmentRepository.GetDep(item.DepartmentID).Title</td>
+                    <td>
+                        @Html.ActionLink("Удалить", "Remove",
+                                     new { id = item.ID },
+                                     new { @class = "btn btn-xs btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
